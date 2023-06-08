@@ -96,3 +96,16 @@ const { insights, homogeneousInsights } = result;
 console.log(homogeneousInsights);
 
 ```
+## 算子介绍
+洞察所采用的算子类型由配置项中的 ***insightTypes*** 属性来设置。
+算子类型共有7种，在默认情况下，洞察将运行每一个算法来返回洞察结果。
+
+| 类型值 | 名称 | 算法 | 描述 |
+| ----| ---- | ---- | ---- | 
+| `trend ` | 趋势检测 | Mann-Kendall 检验 | 检测时间序列数据在某一指标上是否存在显著增加或者减少。 | 
+| `change_point ` | 突变点检测 | 贝叶斯在线变点检测 | 检测在时间序列中某一属性发生的突变。 | 
+| `majority ` | 显著性检测 | 限制比例 | 检测数据分布的显著性，判断是否有突出的数据指标。 | 
+| `low_variance ` | 低方差检测 | 变异系数 | 检测数据分布的均匀性，判断数据点是否分布在均值附近。 |
+|  `category_outlier ` | 类别异常检测 | IQR 算法 | 检测数据中的异常类别。 | 
+| `time_series_outlier ` | 时间序列异常检测 | STL 分解算法 | 检测在时间序列中的异常点。 |  
+| ` correlation` | 相关性检测 | Pearson 积矩相关检验 |检测两个序列之间是否存在相关关系。 | 

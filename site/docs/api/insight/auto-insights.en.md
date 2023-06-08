@@ -92,3 +92,16 @@ const { insights, homogeneousInsights } = result;
 console.log(homogeneousInsights);
 
 ```
+
+## Extractor Introduction
+The extractor types used by Insight are set by the ***insightTypes*** property in the configuration. There are 7 extractor types in total, and by default, Insight will run each algorithm to provide the results.
+
+| Type | Name | Algorithm | Description |  
+| ----| ---- | ---- | ---- |
+| `trend ` | Trend Detection | Mann-Kendall test | Detect significant increases or decreases in time series. | 
+| `change_point ` | Change Point Detection | Bayesian Online Changepoint Detection | Detect change points in time series. | 
+| `majority ` | Majority Detection | proportion limits | Detect the outstanding indicators of data. | 
+| `low_variance ` | Low Variance Detection |  coefficient of variation | Detect the uniformity and determine if data points are distributed around the mean value. |
+|  `category_outlier ` | Category Outlier Detection | IQR | Detect category outliers in the data. | 
+| `time_series_outlier `  | Time Series Outlier Detection| STL decomposition | Detect outlier points in time series.  |  
+| ` correlation` | Correlation Detection | Pearson product-moment correlation coefficient | Detect if there is a correlation between two sequences of data. | 
