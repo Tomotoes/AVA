@@ -62,6 +62,24 @@ getInsights(data, {
 
 * 相关性检测 `correlation`：检测两个序列之间是否存在相关关系。使用[Pearson 积矩相关检验](https://zh.wikipedia.org/wiki/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%A7%AF%E7%9F%A9%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0?wprov=srpw1_0)。
 
+## ⚙️ 自定义影响力指标和权重
+使用 ***impactMeasures*** 和 ***impactWeight*** 属性来自定义影响力指标和权重。
+```ts
+import { getInsights } from '@antv/ava';
+
+getInsights(data, {
+  limit: 10,
+  // 自定义影响力（Impact）分数的计算指标
+  impactMeasures: [
+    { fieldName: 'life_expect', method: 'COUNT' },
+    { fieldName: 'pop', method: 'COUNT' },
+    { fieldName: 'fertility', method: 'COUNT' },
+  ],
+  // 自定义影响力（Impact）分数在洞察分数中的权重（0 ~ 1）
+  impactWeight: 0.5,
+});
+```
+
 ## 📖 文档
 
 更多用法请移步至 [API](../../api/insight/auto-insights)。
