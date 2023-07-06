@@ -36,7 +36,7 @@ getInsights(data, {
 });
 ```
 
-## 🔍 Custom Insight Types
+## 🔍 Customize Insight Types
 There are 7 types of insights, and extractors is defined by the  ***insightTypes*** attribute. By default, each and every extractor will be executed.
 ```ts
 import { getInsights } from '@antv/ava';
@@ -62,6 +62,26 @@ Optional insight types:
 
 * `correlation`：Detect if there is a correlation between two sequences of data by calculating [Pearson product-moment correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
 
+## ⚙️ Customize impact measures and weights
+Customize impact measures and weights by setting up ***impactMeasures*** and  ***impactWeight***.
+
+```ts
+import { getInsights } from '@antv/ava';
+
+getInsights(data, {
+  limit: 10,
+  // set the measures of the impact score
+  impactMeasures: [
+    { fieldName: 'life_expect', method: 'COUNT' },
+    { fieldName: 'pop', method: 'COUNT' },
+    { fieldName: 'fertility', method: 'COUNT' },
+  ],
+  // adjust the calculation weight of the relevant factors (significance, impact) 
+  // in the calculation of the insight score.
+  impactWeight: 0.5,
+});
+```
+
 ## 📖 Documentation
 
 For more usages, please check the [API Reference](../../api/insight/auto-insights).
@@ -75,6 +95,4 @@ Some functionalities of insight are inspired by the following works.
 
 
 * [MetaInsight: Automatic Discovery of Structured Knowledge for Exploratory Data Analysis](https://www.microsoft.com/en-us/research/uploads/prod/2021/03/rdm337-maA.pdf)
-
-
 
